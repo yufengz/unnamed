@@ -88,7 +88,10 @@ setup(int argc, char **argv)
 	setsource(fp, fd, NULL);
 }
 
-
+/* YZ: the mac cc seems to have defined a memmove macro...  */
+#ifdef memmove
+#undef memmove
+#endif
 
 /* memmove is defined here because some vendors don't provide it at
    all and others do a terrible job (like calling malloc) */
